@@ -1,31 +1,22 @@
 # Fase 1 — Descubrimiento de arquitectura
 
-## Estado de sitemap
-Se intentó acceder a `https://www.imaginaits.com/sitemap.xml`, pero el entorno de terminal devolvió `CONNECT tunnel failed: 403`.
+Esta fase quedó automatizada en `project/scripts/clone_imaginaits.py`.
 
-## URLs descubiertas desde navegación principal (home)
+## Fuente de descubrimiento
+El script intenta, por orden:
+1. `https://www.imaginaits.com/sitemap.xml`
+2. `https://imaginaits.com/sitemap.xml`
+3. `https://imaginaits.com/wp-sitemap.xml`
+4. Fallback a enlaces detectados en home (`https://imaginaits.com/`)
 
-### Home
-- `https://imaginaits.com/`
+## Salida jerárquica
+La jerarquía final se serializa en:
+- `project/data/architecture.json`
 
-### Páginas principales
-- `https://imaginaits.com/imacash/`
-- `https://imaginaits.com/imaplay/`
-- `https://imaginaits.com/imatag/`
-- `https://imaginaits.com/imacloud/`
-- `https://imaginaits.com/julia/`
-- `https://imaginaits.com/nosotros/`
-- `https://imaginaits.com/contacto/`
+Con claves:
+- `home`
+- `paginas_principales`
+- `categorias`
+- `landings`
 
-### Sección Nosotros
-- `https://imaginaits.com/noticias/`
-- `https://imaginaits.com/faq/`
-
-### Landing/recursos detectados en menú
-- Integraciones ImaCash
-- Métodos de integración (Rest API)
-- Certificación Rest API
-- Emuladores ImaCash
-- Máquinas integradas
-- Demo ImaCash
-- Manual de Usuario ImaCash
+> Nota: en este entorno no se pudo resolver el sitemap por restricciones de red del túnel. El pipeline queda preparado para ejecutarse fuera de este bloqueo.
