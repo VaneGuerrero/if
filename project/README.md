@@ -42,3 +42,9 @@ Si una imagen no es accesible, se registra exactamente:
 ## Estado en este entorno
 
 En esta sesión, las descargas HTTP directas contra el origen fallaron por túnel/proxy (`403`). El pipeline queda listo para ejecutarse en CI/local con salida de red estándar para obtener clon 1:1 con binarios reales.
+
+## Publicación en GitHub Pages
+
+- El repositorio incluye `index.html` en la raíz para evitar el error 404 en GitHub Pages.
+- Ese `index.html` redirige automáticamente a `project/pages/index.html`.
+- También se incluye `.nojekyll` para servir archivos estáticos sin procesamiento de Jekyll.
